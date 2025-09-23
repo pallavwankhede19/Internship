@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Social App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Banner / Slider -->
+  <div class="w-full bg-blue-600 text-white text-center py-8 text-2xl font-bold">
+       Featured Post: "Welcome to Our Community!"
+  </div>
+
+  <div class="max-w-4xl mx-auto p-4">
+
+    <!-- Create New Post -->
+    <div class="bg-white p-4 rounded shadow mb-6">
+      <textarea placeholder="What's on your mind?" 
+        class="w-full p-2 border rounded resize-none"></textarea>
+      <div class="flex justify-between mt-2">
+        <div class="flex gap-2">
+          <button class="px-3 py-1 bg-gray-200 rounded">Text</button>
+          <button class="px-3 py-1 bg-gray-200 rounded">Image</button>
+          <button class="px-3 py-1 bg-gray-200 rounded">Video</button>
+        </div>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded">Post</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- User Feed -->
+      <div class="md:col-span-2">
+        <h2 class="font-bold text-lg mb-3">Feed</h2>
+        
+        <!-- Post 1 -->
+        <div class="bg-white p-4 rounded shadow mb-4">
+          <p><strong>pallav</strong>: Just finished my portfolio..</p>
+          <div class="flex gap-4 mt-2 text-sm text-gray-600">
+            <button> Like</button>
+            <button> Comment</button>
+            <button>↗ Share</button>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="bg-white p-4 rounded shadow mb-4">
+          <p><strong>Devang</strong>: Loving React + Tailwind </p>
+          <div class="flex gap-4 mt-2 text-sm text-gray-600">
+            <button> Like</button>
+            <button> Comment</button>
+            <button>↗ Share</button>
+          </div>
+        </div>
+
+       
+
+      <!-- Trending Topics -->
+      <aside>
+        <h2 class="font-bold text-lg mb-3">Trending Topics</h2>
+        <ul class="bg-white p-4 rounded shadow space-y-2">
+          <li class="hover:underline cursor-pointer">#FrontendDev</li>
+          <li class="hover:underline cursor-pointer">#Hackathon2025</li>
+          <li class="hover:underline cursor-pointer">#AItools</li>
+          <li class="hover:underline cursor-pointer">#OpenSource</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+</body>
+</html>

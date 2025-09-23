@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="h-screen flex">
+
+    <!-- Sidebar: Conversations -->
+    <aside class="w-1/4 bg-white border-r shadow-lg">
+      <div class="p-4 border-b">
+        <h2 class="text-xl font-bold">Chats</h2>
+      </div>
+      <div class="overflow-y-auto h-[calc(100%-3rem)]">
+        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-3">
+          <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="font-semibold">Alice</p>
+            <p class="text-xs text-gray-500">Hey! How are you?</p>
+          </div>
+        </div>
+        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-3">
+          <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="font-semibold">Bob</p>
+            <p class="text-xs text-gray-500">Let’s meet tomorrow</p>
+          </div>
+        </div>
+        <div class="p-3 hover:bg-gray-100 cursor-pointer flex items-center gap-3">
+          <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="font-semibold">Group: Dev Team</p>
+            <p class="text-xs text-gray-500">New project updates </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Chat Window -->
+    <main class="flex-1 flex flex-col">
+      <!-- Chat Header -->
+      <div class="flex items-center gap-3 bg-white p-4 border-b shadow">
+        <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full">
+        <div>
+          <p class="font-bold">Alice</p>
+          <p class="text-sm text-gray-500">Online</p>
+        </div>
+      </div>
+
+      <!-- Messages Area -->
+      <div class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
+        <!-- Friend Message -->
+        <div class="flex items-start gap-2">
+          <img src="https://via.placeholder.com/40" class="w-8 h-8 rounded-full">
+          <div class="bg-white p-3 rounded-lg shadow max-w-sm">
+            <p>Hey! How are you?</p>
+          </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end">
+          <div class="bg-blue-500 text-white p-3 rounded-lg shadow max-w-sm">
+            <p>I’m good! Working on my frontend project </p>
+          </div>
+        </div>
+
+        <!-- Group Chat Example -->
+        <div class="flex items-start gap-2">
+          <img src="https://via.placeholder.com/40" class="w-8 h-8 rounded-full">
+          <div>
+            <p class="text-xs font-bold">Bob</p>
+            <div class="bg-white p-3 rounded-lg shadow max-w-sm">
+              <p>Don’t forget our meeting tomorrow</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Input -->
+      <div class="bg-white p-4 border-t flex items-center gap-3">
+        <input type="text" placeholder="Type a message..." class="flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Send</button>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
