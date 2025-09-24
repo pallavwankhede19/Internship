@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. DATA MANAGEMENT ---
+    
 
-    let posts = []; // This array will hold all our post data.
+    let posts = []; 
     const POSTS_STORAGE_KEY = 'social-media-posts';
 
-    // Function to load posts from Local Storage
+    
     const loadPosts = () => {
         const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
         if (storedPosts) {
             posts = JSON.parse(storedPosts);
         } else {
-            // If no posts are saved, create a default one
+           
             posts = [{
                 id: Date.now(),
                 author: 'Admin',
@@ -22,26 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Function to save posts to Local Storage
+   
     const savePosts = () => {
         localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(posts));
     };
 
 
-    // --- 2. RENDERING ---
-
-    // This function takes the `posts` array and renders it as HTML
+  
     const renderPosts = () => {
         const feedContainer = document.getElementById('feedContainer');
-        if (!feedContainer) return; // Exit if the container isn't on the page
+        if (!feedContainer) return; 
 
-        feedContainer.innerHTML = ''; // Clear the feed to prevent duplicates
-
+        feedContainer.innerHTML = ''; 
         posts.forEach(post => {
             const postDiv = document.createElement('div');
             postDiv.classList.add('post');
 
-            // Set the inner HTML of the post element
+           
             postDiv.innerHTML = `
                 <p><strong>${post.author}:</strong> ${post.content}</p>
                 <div class="post-actions">
@@ -57,33 +54,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // --- 3. EVENT HANDLERS & LOGIC ---
-
-    // Logic for creating a new post
+    
     const handleCreatePost = () => {
         const postTextarea = document.getElementById('postTextarea');
         const content = postTextarea.value.trim();
 
         if (content) {
             const newPost = {
-                id: Date.now(), // Use the current timestamp as a unique ID
-                author: 'You', // In a real app, this would be the logged-in user
+                id: Date.now(), 
+                author: 'You', 
                 content: content,
                 likes: 0,
                 isLiked: false
             };
 
-            posts.unshift(newPost); // Add the new post to the beginning of the array
-            postTextarea.value = ''; // Clear the input field
-
-            savePosts();    // Save the updated posts array
-            renderPosts();  // Re-render the feed to show the new post
+            posts.unshift(newPost); 
+            postTextarea.value = ''; 
+            savePosts();    
+            renderPosts();  
         }
     };
 
-    // Logic for liking a post using event delegation
+  
     const handleFeedClick = (event) => {
-        // Check if the clicked element is a like button
+      
         if (event.target.classList.contains('like-btn')) {
             const postId = parseInt(event.target.dataset.postId);
             const post = posts.find(p => p.id === postId);
@@ -94,8 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     post.likes++;
                 }
-                post.isLiked = !post.isLiked; // Toggle the liked status
-
+                post.isLiked = !post.isLiked; 
                 savePosts();
                 renderPosts();
             }
@@ -103,9 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    // --- 4. INITIALIZATION & EVENT LISTENERS ---
-
-    // Page Navigation Logic
+ 
     const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('main section');
     const hideAllSections = () => sections.forEach(sec => sec.classList.add('hidden'));
@@ -121,11 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Add event listeners for dynamic actions
+  
     document.getElementById('postButton').addEventListener('click', handleCreatePost);
     document.getElementById('feedContainer').addEventListener('click', handleFeedClick);
 
-    // Initial setup when the page loads
+  
     hideAllSections();
     document.querySelector('#home').classList.remove('hidden');
     loadPosts();
